@@ -27,7 +27,7 @@ public class Main {
         scan.close();
 
         double subTotal = (coffeeCount * COFFEE_PRICE) + (teaCount * TEA_PRICE) + (pastryCount * PASTRY_COST);
-        double total = subTotal * (SERVICE_FEE + VAT);
+        String total = String.format("$%.2f",subTotal * (SERVICE_FEE + VAT));
 
         System.out.println(total);
     }
