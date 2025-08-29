@@ -13,21 +13,28 @@ public class Main {
         int teaCount;
         int pastryCount;
 
+        String couponCode;
+
         Scanner scan = new Scanner(System.in);
 
-        System.out.print("Enter coffee count for coffee: ");
+        System.out.print("Enter coffee count: ");
         coffeeCount = scan.nextInt();
 
-        System.out.print("Enter coffee count for coffee: ");
+        System.out.print("Enter coffee count: ");
         teaCount = scan.nextInt();
 
-        System.out.print("Enter coffee count for coffee: ");
+        System.out.print("Enter coffee count: ");
         pastryCount = scan.nextInt();
+
+        scan.nextLine();
+
+        System.out.print("Enter coupon code: ");
+        couponCode = scan.nextLine();
 
         scan.close();
 
         double subTotal = (coffeeCount * COFFEE_PRICE) + (teaCount * TEA_PRICE) + (pastryCount * PASTRY_COST);
-        String total = String.format("$%.2f", subTotal * (SERVICE_FEE + VAT));
+        String total = String.format("$%.2f", couponCode.equals("STUDENT10") ? (subTotal * (SERVICE_FEE + VAT - 0.1)) : (subTotal * (SERVICE_FEE + VAT)));
 
         System.out.print(total);
     }
