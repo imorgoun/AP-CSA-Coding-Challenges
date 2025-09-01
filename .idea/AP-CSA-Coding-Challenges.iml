@@ -6,6 +6,8 @@
       <sourceFolder url="file://$MODULE_DIR$/Campus Cafe Tally" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Campus Cafe Tally/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Calculus Utilities" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Number Guessing Game" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/yertle" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
