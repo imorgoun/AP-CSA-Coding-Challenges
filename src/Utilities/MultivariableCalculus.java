@@ -110,7 +110,7 @@ public class MultivariableCalculus {
     }
 
     /** Density Fields */
-    // Function for generating density values based on points on one a line.
+    // Function for generating density values based on points on one line.
     public static MultivariableFunction DensityFunction2D(double[] points) {
         // Empty density function.
         MultivariableFunction densityFunction = args -> 0.0;
