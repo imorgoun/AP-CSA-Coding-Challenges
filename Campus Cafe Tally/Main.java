@@ -15,15 +15,20 @@ public class Main {
 
         String couponCode;
 
+        System.out.println("Menu");
+        System.out.println("Coffee ($2.10)");
+        System.out.println("Tea ($1.60)");
+        System.out.println("Pastry ($2.75)");
+
         Scanner scan = new Scanner(System.in);
 
         System.out.print("Enter coffee count: ");
         coffeeCount = scan.nextInt();
 
-        System.out.print("Enter coffee count: ");
+        System.out.print("Enter tea count: ");
         teaCount = scan.nextInt();
 
-        System.out.print("Enter coffee count: ");
+        System.out.print("Enter pastry count: ");
         pastryCount = scan.nextInt();
 
         scan.nextLine();

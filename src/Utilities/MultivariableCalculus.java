@@ -39,17 +39,18 @@ public class MultivariableCalculus {
     // Using main function to test.
     public static void main(String[] args) {
         // Gradient descent testing.
-        MultivariableFunction funcMINUS = DensityFunction2D(new double[] {1, 3});
+        MultivariableFunction funcMINUS = DensityFunction2D(new double[] {1, 2});
         MultivariableFunction funcPLUS = DensityFunction2D(new double[] {5, 6});
         funcPLUS = funcPLUS.subtract(funcMINUS);
         MultivariableFunction finalFuncPLUS = funcPLUS;
         MultivariableFunction funcINT = argsK -> IteratedIntegral(finalFuncPLUS, new double[] {0, argsK[0]}, 1);
 
         System.out.println(DECIMAL_FORMAT.format(funcPLUS.apply(new double[] {4})));
-        System.out.println("Final x value : " + DECIMAL_FORMAT.format(GradientDescent(funcINT, new double[] {0}, 0.5, 200)[0]));
+        System.out.println("Final x value : " + DECIMAL_FORMAT.format(GradientDescent(funcINT, new double[] {0}, 0.5, 10)[0]));
 
         // Integral testing.
         System.out.println("Integral from 0 to 2 of x^2 : " + DECIMAL_FORMAT.format(IteratedIntegral(myFunction, new double[] {0, 2 * PI}, 2)));
+        System.out.println(DECIMAL_FORMAT.format(DefiniteIntegral(myFunction, new double[] {0, 2})));
 
         // Density field testing.
         MultivariableFunction testDensityFunction = DensityFunction2D(new double[] {0, 1, 2, 3});
@@ -83,6 +84,20 @@ public class MultivariableCalculus {
     }
 
     /** Integration */
+    public static double DefiniteIntegral(MultivariableFunction function, double[] bounds, int j) {
+        double sum = 0.0;
+        double[] args = new double[] {};
+        args[j] = bounds[0];
+        while (bounds[0] < bounds[1]) {
+            sum += function.apply(bounds) * dx;
+            bounds[0] += dx;
+        }
+        return sum;
+    }
+    public static MultivariableFunction IndefiniteIntegral(MultivariableFunction function, double[] domain) {
+        return function;
+    }
+
     // Function used to calculate the nth integral of a function.
     public static double IteratedIntegral(MultivariableFunction function, double[] bounds, int n) {
         // Initializing the value of the compressed integral as zero.
@@ -122,6 +137,15 @@ public class MultivariableCalculus {
             densityFunction = densityFunction.add(contribution);
         }
         // Returns the sum of all the contributions.
+        return densityFunction;
+    }
+
+    public static MultivariableFunction DensityFunction3D(double[][] points) {
+        MultivariableFunction densityFunction = args -> 0.0;
+        for (double[] point : points) {
+            MultivariableFunction densityContributionFunction = args -> exp(-pow(args[0] - point[0], 2)) * exp(-pow(args[1] - point[1], 2));
+            densityFunction = densityFunction.add(densityContributionFunction);
+        }
         return densityFunction;
     }
 }
