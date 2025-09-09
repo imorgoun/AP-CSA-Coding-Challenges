@@ -50,7 +50,6 @@ public class MultivariableCalculus {
 
         // Integral testing.
         System.out.println("Integral from 0 to 2 of x^2 : " + DECIMAL_FORMAT.format(IteratedIntegral(myFunction, new double[] {0, 2 * PI}, 2)));
-        System.out.println(DECIMAL_FORMAT.format(DefiniteIntegral(myFunction, new double[] {0, 2})));
 
         // Density field testing.
         MultivariableFunction testDensityFunction = DensityFunction2D(new double[] {0, 1, 2, 3});

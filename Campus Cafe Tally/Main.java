@@ -15,10 +15,12 @@ public class Main {
 
         String couponCode;
 
+        System.out.println("---------------");
         System.out.println("Menu");
         System.out.println("Coffee ($2.10)");
         System.out.println("Tea ($1.60)");
         System.out.println("Pastry ($2.75)");
+        System.out.println("---------------");
 
         Scanner scan = new Scanner(System.in);
 
@@ -38,9 +40,11 @@ public class Main {
 
         scan.close();
 
+        System.out.println("---------------");
+
         double subTotal = (coffeeCount * COFFEE_PRICE) + (teaCount * TEA_PRICE) + (pastryCount * PASTRY_COST);
         String total = String.format("$%.2f", couponCode.equals("STUDENT10") ? (subTotal * (SERVICE_FEE + VAT - 0.1)) : (subTotal * (SERVICE_FEE + VAT)));
 
-        System.out.print(total);
+        System.out.println("Your total is : " + total);
     }
 }
