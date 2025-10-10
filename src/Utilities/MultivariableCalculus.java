@@ -128,6 +128,7 @@ public class MultivariableCalculus {
     public static MultivariableFunction DensityFunction2D(double[] points) {
         // Empty density function.
         MultivariableFunction densityFunction = args -> 0.0;
+        MultivariableCalculus supplied  = new MultivariableCalculus();
         // Loops through each point in pointCoordinates.
         for (double displacement : points) {
             // Initializes the contribution function for each displacement.
