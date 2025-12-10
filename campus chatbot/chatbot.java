@@ -1,6 +1,6 @@
 import java.util.*;
 public class chatbot {
-    static String[][] classInfo = { // 2D of classes and associated data.
+    static String[][] classInfo = { // 2D list of classes and associated data.
             {"Physics", "Mr.S", "A", "1.11"},
             {"Math", "Ms.V", "B", "1.12"},
             {"English", "Mr.Rix", "C", "1.13"},
@@ -40,7 +40,7 @@ public class chatbot {
         if (doesStatementContain(statement, new String[]{question})) { // Checks if statement contains the question.    data based on the type of question.
             String response;String[] splitStatement = statement.toLowerCase().split(" "); // Splits the statement around spaces into a list.
             String currentSubject = splitStatement[question.split(" ").length].replaceAll("\\p{Punct}", ""); // Removes punctuation.
-            response = returnSubjectInfo(currentSubject)[index]; // Uses the method from before to return the correct field based on 'index'
+            response = returnSubjectInfo(currentSubject)[index]; // Uses the method from before to return the correct field based on 'index.'
             switch (index) { //                                      (e.g. 1 –> teaches, 3 –> room)
                 case 1: if (Arrays.asList(classInfo).contains(returnSubjectInfo(currentSubject))) { // Case where the requested field is teacher.
                             return formatString(response + suffixes[index - 1] + currentSubject);} // Returns the requested field, structured
